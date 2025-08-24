@@ -1,0 +1,25 @@
+.title {
+    text-align: center;
+    color: #222;
+    margin-bottom: 40px;
+}
+.range-imgs {
+    text-align: center;
+    margin: auto;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+}
+.img {
+    width: 270px;
+    overflow: hidden;
+}
+.range {
+    width: 90%;
+    margin: auto;
+    margin: 50px auto;
+}
+
+h2 {
+    margin-top: 20px;
+}

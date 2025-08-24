@@ -1,0 +1,88 @@
+.register {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fff8e6 0%, #fef3d8 100%);
+  font-family: 'Poppins', sans-serif;
+  flex-direction: column;
+}
+
+.register .choose {
+  display: flex;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+.register .choose button {
+  padding: 0.7rem 2.5rem;
+  border: none;
+  border-radius: 30px;
+  background: #B88E2F;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(184, 142, 47, 0.3);
+}
+
+.register .choose button:hover {
+  background: #D4A44D;
+  transform: translateY(-2px) scale(1.04);
+}
+
+.register form {
+  background: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px rgba(184,142,47,0.15), 0 1.5px 6px rgba(0,0,0,0.03);
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  min-width: 340px;
+}
+
+.register input[type="text"],
+.register input[type="email"],
+.register input[type="password"] {
+  padding: 0.9rem 1.2rem;
+  border: 1.5px solid #f5e6c0;
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #fff7e1;
+  transition: border 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.register input[type="text"]:focus,
+.register input[type="email"]:focus,
+.register input[type="password"]:focus {
+  border: 1.5px solid #B88E2F;
+  box-shadow: 0 0 0 2px #B88E2F33;
+}
+
+.register input[type="submit"] {
+  margin-top: 0.5rem;
+  padding: 0.9rem 0;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #B88E2F 60%, #D4A44D 100%);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(184,142,47,0.3);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.register input[type="submit"]:hover {
+  background: linear-gradient(90deg, #D4A44D 60%, #B88E2F 100%);
+  transform: translateY(-1px) scale(1.03);
+}
+
+@media (max-width: 500px) {
+  .register form {
+    min-width: 90vw;
+  }
+}

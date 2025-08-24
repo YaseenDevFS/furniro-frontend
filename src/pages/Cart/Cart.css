@@ -1,0 +1,123 @@
+.Cart {
+  padding: 50px 20px;
+  min-height: 100vh;
+  background: #f8f5f0;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  margin-top: 50px;
+}
+
+.Cart h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #B88E2F;
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+/* Table styling */
+.cart-table {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.cart-table thead {
+  background: #B88E2F;
+  color: #fff;
+}
+
+.cart-table th, .cart-table td {
+  padding: 15px 12px;
+  text-align: left;
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
+.cart-table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.3s ease;
+}
+
+.cart-table tbody tr:hover {
+  background: #fdf3d3;
+}
+
+.product-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.product-cell img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.remove-btn, .checkout-btn {
+  padding: 8px 15px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+.remove-btn {
+  background: #e74c3c;
+  color: #fff;
+}
+
+.remove-btn:hover {
+  transform: scale(1.05);
+  background: #c0392b;
+}
+
+.checkout-btn {
+  background: #B88E2F;
+  color: #fff;
+}
+
+.checkout-btn:hover {
+  transform: scale(1.05);
+  background: #a57622;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .cart-table thead {
+    display: none;
+  }
+  .cart-table, .cart-table tbody, .cart-table tr, .cart-table td {
+    display: block;
+    width: 100%;
+  }
+  .cart-table tr {
+    margin-bottom: 15px;
+  }
+  .cart-table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+  .cart-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    width: 45%;
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+  }
+  .product-cell img {
+    width: 50px;
+    height: 50px;
+  }
+}

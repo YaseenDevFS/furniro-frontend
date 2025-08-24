@@ -1,0 +1,118 @@
+.about-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fdf6e3, #f0e5d8);
+  padding: 60px 20px;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  margin-top: 40px;
+}
+
+/* Hero Section */
+.about-hero {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 70px;
+  animation: fadeIn 1.2s ease-in-out;
+}
+.about-hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #B88E2F; /* اللون الأساسي */
+  margin-bottom: 20px;
+  position: relative;
+}
+.about-hero h1::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background: #B88E2F;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+.about-hero p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #555;
+}
+.about-hero .highlight {
+  color: #B88E2F;
+  font-weight: 600;
+}
+
+/* About Container */
+.about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  animation: slideUp 1.2s ease-in-out;
+}
+
+/* Text Section */
+.about-text h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #B88E2F;
+  font-weight: 600;
+}
+.about-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  color: #555;
+}
+.about-text ul {
+  list-style: none;
+  padding: 0;
+}
+.about-text li {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #444;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.2s ease-in-out;
+}
+.about-text li:hover {
+  transform: translateX(5px);
+  color: #B88E2F;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 34px;
+  }
+  .about-container {
+    padding: 25px;
+  }
+  .about-text h2 {
+    font-size: 22px;
+  }
+}
