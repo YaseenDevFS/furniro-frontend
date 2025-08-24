@@ -4,8 +4,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none; /* يمنع ال context menu في iOS */
+  -webkit-user-select: none;   /* يمنع تحديد النصوص */
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
 }
 body {
   font-family: 'Roboto', sans-serif;
   color: #333;
 }
+
