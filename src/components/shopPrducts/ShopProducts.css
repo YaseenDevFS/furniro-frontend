@@ -6,6 +6,7 @@
   background: linear-gradient(135deg, #f8fafc 0%, #f5ecd7 100%);
   min-height: 100vh;
   font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  margin-top: 50px;
 }
 
 /* Title */

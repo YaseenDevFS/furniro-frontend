@@ -5,7 +5,6 @@ import ShopProducts from '../../components/shopPrducts/ShopProducts'
 const Shop = () => {
   return (
     <div>
-        <Header />
         <ShopProducts />
     </div>
   )

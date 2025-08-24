@@ -39,7 +39,7 @@ const Register = () => {
   }
   return (
     <div className="register">
-      <div className="choose">
+     <div className="choose">
         <button onClick={() => {setIsLogin(true)}}>Login</button>
         <button onClick={() => {setIsLogin(false)}}>Register</button>
       </div>
