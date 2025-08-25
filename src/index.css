@@ -43,3 +43,8 @@ body {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+span {
+  color: #B88E2F;
+  font-weight: 600;
+  cursor: pointer;
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 import Navbar from "./components/NavBar/Navbar";
@@ -17,22 +17,25 @@ import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
+  const location = useLocation(); // 👈 علشان نعرف الصفحة الحالية
 
   useEffect(() => {
-    // هنا نخلي الـ Loader يختفي بعد ما الـ React يركب (mount)
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1500); // 1.5 ثانية (ممكن تزود لو عايز)
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, []);
+
+  // 👇 الشرط: لو احنا في صفحة Register (اللي مسارها "/") مش هنظهر الـ Navbar & Footer
+  const hideLayout = location.pathname === "/";
 
   return (
     <div>
       <LoadingScreen loading={loading} />
 
       <div style={{ display: loading ? "none" : "block" }}>
-        <Navbar />
+        {!hideLayout && <Navbar />}
         <Routes>
           <Route path="/" element={<Register />} />
           <Route path="/Home" element={<Home />} />
@@ -44,7 +47,7 @@ const App = () => {
           <Route path="/success" element={<Success />} />
           <Route path="/cancel" element={<Cancel />} />
         </Routes>
-        <Footer />
+        {!hideLayout && <Footer />}
         <ToastContainer />
       </div>
     </div>

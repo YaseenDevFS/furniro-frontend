@@ -39,10 +39,6 @@ const Register = () => {
   }
   return (
     <div className="register">
-     <div className="choose">
-        <button onClick={() => {setIsLogin(true)}}>Login</button>
-        <button onClick={() => {setIsLogin(false)}}>Register</button>
-      </div>
       <form onSubmit={handleSubmit}>
         {isLogin ? (
           <>
@@ -50,6 +46,7 @@ const Register = () => {
             <input type="email" placeholder='email' onChange={(e) => setEmail(e.target.value)} value={email} />
             <input type="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)} value={password} />
             <input type="submit" value="submit" />
+            <p>Don't have an account? <span onClick={toggle}>Register</span></p>
           </>
         ) : (
           <>
@@ -58,6 +55,7 @@ const Register = () => {
             <input type="email" placeholder='email' onChange={(e) => setEmail(e.target.value)} value={email} />
             <input type="password" placeholder='Password' onChange={(e) => setPassword(e.target.value)} value={password} />
             <input type="submit" value="submit" />
+            <p>already have an account? <span onClick={toggle}>Login</span></p>
           </>
 
         )
