@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import './Cart.css';
-import Product from '../../../../backend/models/Product';
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -24,7 +23,7 @@ const Cart = () => {
     const handleCheckout = async () => {
         try {
             const response = await axios.post('https://furniro-backend-production.up.railway.app/create-checkout-session', {
-                product: cartItems
+                 cartItems
             });
             window.location.href = response.data.url; // Redirect to Stripe Checkout
         } catch (error) {
