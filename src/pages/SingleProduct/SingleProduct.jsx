@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { toast } from "react-toastify"; // 👈 أضفنا التوست
+import 'react-toastify/dist/ReactToastify.css';
 import './SingleProduct.css'
+
 const SingleProduct = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
@@ -23,20 +25,32 @@ const SingleProduct = () => {
 
     const handleCheckout = async () => {
         try {
-            const response = await axios.post('https://furniro-backend-production.up.railway.app/create-checkout-session', {
-                product,
-            });
+            const response = await axios.post(
+                'https://furniro-backend-production.up.railway.app/create-checkout-session',
+                { product }
+            );
             window.location.href = response.data.url; // Redirect to Stripe Checkout
         } catch (error) {
             console.error('Error creating checkout session:', error);
         }
-        console.log(product)
     };
+
+    const handleAddToCart = (product) => {
+        const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+        storedCart.push(product);
+        localStorage.setItem('cart', JSON.stringify(storedCart));
+        toast.success(`${product.title} added to cart!`)
+    }
+    
     return (
         <div className="single-product">
             <div className="right">
                 <span className="badge">New</span>
-                <img src={`https://furniro-backend-production.up.railway.app/${product.image}`} alt={product.title} />
+                {/* اتأكد إن الـ backend بيرجع الصورة بالـ path الصح */}
+                <img 
+                  src={`https://furniro-backend-production.up.railway.app/${product.image}`} 
+                  alt={product.title} 
+                />
             </div>
 
             <div className="left">
@@ -48,15 +62,18 @@ const SingleProduct = () => {
                 {/* Rating */}
                 <div className="rating">
                     {[1, 2, 3, 4, 5].map((star) => (
-                        <span key={star} className={star <= product.rate ? "star filled" : "star"}>&#9733;</span>
+                        <span 
+                          key={star} 
+                          className={star <= product.rate ? "star filled" : "star"}>
+                          &#9733;
+                        </span>
                     ))}
                 </div>
+
                 <div className="buttons">
-                <button onClick={handleCheckout} className="buy-button">Check Out</button>
-                <button className="buy-button">Add to Cart</button>
-
+                  <button onClick={handleCheckout} className="buy-button">Check Out</button>
+                  <button onClick={() => handleAddToCart(product)} className="buy-button">Add to Cart</button>
                 </div>
-
             </div>
         </div>
     );

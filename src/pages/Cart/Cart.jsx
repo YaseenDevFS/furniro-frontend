@@ -22,6 +22,7 @@ const Cart = () => {
 
     const handleCheckout = async () => {
         try {
+            toast.error("Don`t work now");
             const response = await axios.post('https://furniro-backend-production.up.railway.app/create-checkout-session', {
                  cartItems
             });
