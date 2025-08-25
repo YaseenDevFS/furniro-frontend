@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
+import axios from 'axios';
 import './Cart.css';
+import Product from '../../../../backend/models/Product';
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -19,6 +21,17 @@ const Cart = () => {
 
   const total = cartItems.reduce((sum, item) => sum + item.price, 0);
 
+    const handleCheckout = async () => {
+        try {
+            const response = await axios.post('https://furniro-backend-production.up.railway.app/create-checkout-session', {
+                product: cartItems
+            });
+            window.location.href = response.data.url; // Redirect to Stripe Checkout
+        } catch (error) {
+            console.error('Error creating checkout session:', error);
+        }
+        console.log(cartItems);
+    };
   return (
     <div className="Cart">
      {cartItems.length === 0 ? (
@@ -78,7 +91,7 @@ const Cart = () => {
 
     <div className="cart-summary">
       <h3>Subtotal: <span>${total.toFixed(2)}</span></h3>
-      <button className="checkout-btn">Proceed to Checkout</button>
+      <button className="checkout-btn" onClick={handleCheckout}>Proceed to Checkout</button>
     </div>
   </>
 )}
